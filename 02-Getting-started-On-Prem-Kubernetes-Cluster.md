@@ -12,11 +12,11 @@ In this task, you will check the existing Kubernetes cluster and verify that the
    ```
    minikube status
    ```
-   If your cluster is running, the output from minikube status should be similar to:
+   If the cluster is running, the output from minikube status should be similar to:
    
    ![](./images/azure-arc-01.png)
    
-   >Note: If the status shows as **Stopped**,Run the following commands
+   >Note: If the cluster status is **Stopped**,Run the following commands
    
    ```
    minikube delete
