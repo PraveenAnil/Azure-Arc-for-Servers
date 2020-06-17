@@ -1,82 +1,71 @@
 # Exercise 5: Azure Governance for Kubernetes on Azure Arc
-In this exercise, you will perform Role assignment, Policy assignment, Tag the Hybrid compute machines and check Activity logs of resource group and servers.
+In this exercise, you will perform Role assignment, Policy assignment, Tag the Azure Arc Enabled Kubernetes and check Activity logs of resource group and servers.
 
 Using custom roles you can manage the access to the Azure Arc servers and assign the access of Azure Arc servers to any server auditor, Onboard Arc servers, Monitor Admin to the person in your company.
 
 You can assign the In-Build policies to monitor guest level oprations on Azure Arc servers. You can filter the servers and apply the policies based on Tags.
 
-## Task 1: RBAC + Security
-## Theory of least permission
-Security best practices specify that a user should be given the lowest permission level needed to perform her or his job. As an example, in the previous section a service principal is used for bulk onboarding of servers. The service principal is given ‘Hybrid Server Onboarding’ permission which is limited to onboarding ARC servers. A new user named Auditor has been added and tasked with periodically checking policy compliance. This user only needs read access to a specific set of resource types.
-## Custom role
-1. Save the role definition as ServerAuditor.json to C:\LabFiles directory in ARCHOST VM. You can use Visual studio code or notepad to edit and save the file. Provide the Subscription Id and resourceGroupsName of your lab environment in following custom role definition. You can get the values on lab details page.
+## Task 1: Install Azure Policy Add-on for Azure Arc enabled Kubernetes
+
+Azure Policy extends Gatekeeper v3, an admission controller webhook for Open Policy Agent (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. The add-on enacts the following functions:
+
+	Checks with Azure Policy service for policy assignments to the cluster.
+	Deploys policy definitions into the cluster as constraint template and constraint custom resources.
+	Reports auditing and compliance details back to Azure Policy service.
+
+1. Assign 'Policy Insights Data Writer (Preview)' role assignment to the Azure Arc enabled Kubernetes cluster. Replace <subscriptionId> with your subscription ID, <rg> with the Azure Arc enabled Kubernetes cluster's resource group, and <clusterName> with the name of the Azure Arc enabled Kubernetes cluster. Keep track of the returned values for appId, password, and tenant for the installation steps.
 
    ![](./images/azure-arc-1221.png)   
 
     ```
-    {
-      "Actions": [
-         "Microsoft.Authorization/policyassignments/read",
-         "Microsoft.Authorization/policydefinitions/read",
-         "Microsoft.Authorization/policysetdefinitions/read",
-         "Microsoft.Compute/virtualMachines/read",
-         "Microsoft.HybridCompute/machines/read",
-         "Microsoft.PolicyInsights/*/read"
-         ],
-      "AssignableScopes": [
-         "/subscriptions/<Subscription Id>/resourceGroups/<resourceGroupsName>"
-         ],
-      "Description": "Can audit server compliance.",
-      "Name": "Server Auditor" 
-    }
+    az ad sp create-for-rbac --role "Policy Insights Data Writer (Preview)" --scopes "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-2. Once you save the file, it will look like below.
+2. The output of the above command will will look like below.
 	
    ![](./images/azure-arc-1222.png)
 
-3. Run the PowerShell commands to create a role definition.
+3. Run the following commands in Powershell to add the Azure Policy Add-on repo to Helm.
  
      ```
-     #Import Creds
-     CD C:\LabFiles
-     $credsfilepath = ".\creds.txt"
-     $creds = Get-Content $credsfilepath | Out-String | ConvertFrom-StringData
-     $AppID = "$($creds.AppID)"
-     $AppSecret = "$($creds.AppSecret)"
-     $TenantID = "$($creds.TenantID)"
-     $SubscriptionId = "$($creds.SubscriptionId)"
-     $passwd = ConvertTo-SecureString $AppSecret -AsPlainText -Force
-     $pscredential = New-Object System.Management.Automation.PSCredential($AppID, $passwd)
-     Connect-AzAccount -ServicePrincipal -Credential $pscredential -Tenant $tenantId
-     New-AzRoleDefinition -InputFile .\ServerAuditor.json 
+     helm repo add azure-policy https://raw.githubusercontent.com/Azure/azure-policy/master/extensions/policy-addon-kubernetes/helm-charts 
     ```
 
    ![](./images/azure-arc-1225.png)
 
-4. Now, go to your resource group in Azure portal and click on **Access control (IAM)** and then click on **+ Add** button to assign the role to self which you just created.
+4. Run the following commands in Powershell to install the Azure Policy Add-on repo to Helm.
 
    ![](./images/azure-arc-1226.png)
+   
+   ```
+   # In below command, replace the following values with those gathered above.
+   # <AzureArcClusterResourceId> with your Azure Arc enabled Kubernetes cluster resource Id. For example: /subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>
+   #    <ServicePrincipalAppId> with app Id of the service principal created during prerequisites.
+   #    <ServicePrincipalPassword> with password of the service principal created during prerequisites.
+   #    <ServicePrincipalTenantId> with tenant of the service principal created during prerequisites.
+   helm install azure-policy-addon azure-policy/azure-policy-addon-arc-clusters \
+    --set azurepolicy.env.resourceid=<AzureArcClusterResourceId> \
+    --set azurepolicy.env.clientid=<ServicePrincipalAppId> \
+    --set azurepolicy.env.clientsecret=<ServicePrincipalPassword> \
+    --set azurepolicy.env.tenantid=<ServicePrincipalTenantId>
+   ```
 
-5. Now, click on **Add role assignment**.
+5. Now, to validate that the add-on installation was successful and that the azure-policy and gatekeeper pods are running, run the following commands.
 
    ![](./images/azure-arc-1227.png)
+   
+    
+     ```
+    # azure-policy pod is installed in kube-system namespace
+	kubectl get pods -n kube-system
+     ```
+     
+    ```
+    # gatekeeper pod is installed in gatekeeper-system namespace
+	kubectl get pods -n gatekeeper-system
+    ```
 
-6. Click on **Select a role** and search for **Server Auditor** and select it from the list.
 
-   ![](./images/azure-arc-1228.png)
-
-7. Now, in Select option search for your **azure account**, click on that and then select the **save** button to **assign the Server Auditor role** to self.
-
-   ![](./images/azure-arc-1229.png)
-
-8. Once the **role assignment** succeed you will see the **notification** on bell icon.
-
-   ![](./images/azure-arc-1230.png)
-
-9. You can review the role assigned to self by going to **Role assignments**.
-
-   ![](./images/azure-arc-1551.png)
 
 ## Task 2: Apply Policy
 Policies can be applied to ARC servers the same way they are applied to Microsoft Azure virtual machines. Policies can be applied to ensure the Azure resources are compliant with established practices such as ensuring that all resources are tagged with an owner. Initiatives can be applied to ensure the server operating systems are compliant such as ensuring the time zone is set correctly on a Microsoft Windows server or a software package is installed on a Linux server. The initiatives use a publish policy to deploy a configuration requirement and an audit policy to check if the requirement has been met.
