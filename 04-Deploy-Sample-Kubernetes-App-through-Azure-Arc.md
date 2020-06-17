@@ -32,7 +32,7 @@
 
    ![](./images/azure-arc-09.png) 
   
-  >Wait for 5 mins before performing the next step
+   >Wait for 5 mins before performing the next step
   
 2. Navigate to **Azure-Arc RG->AzureArcAKSCluster1->Configurations**. The operator state status should show as **installed**
 
