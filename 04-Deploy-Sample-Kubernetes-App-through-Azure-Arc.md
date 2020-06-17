@@ -56,7 +56,7 @@
     kubectl -n cluster-config get deploy  -o wide
     ```
    
-    The output is as shown:
+    The output should be as shown:
    
     ![](./images/azure-arc-12.png) 
   
