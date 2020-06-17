@@ -51,10 +51,11 @@
    ![](./images/azure-arc-11.png) 
    
  2.  The flux operator will be deployed to cluster-config namespace, as directed by our sourceControlConfig:
- 
-    ```
-    kubectl -n cluster-config get deploy  -o wide
-    ```
+      
+      ```
+      kubectl -n cluster-config get deploy  -o wide
+      ```
+   
    The output is as shown:
    
    ![](./images/azure-arc-12.png) 
