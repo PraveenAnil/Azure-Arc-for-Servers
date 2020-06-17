@@ -3,15 +3,16 @@ In the provided lab environment, you would already have one Windows 10 machine r
 
 ## Task 1: Verify existing Kubernetes Cluster
 In this task, you will check the existing Kubernetes cluster and verify that the cluster is up and running. 
-1. On Azure portal, search for **Azure Arc** from search box and then select the **Machines – Azure Arc**.
+1. Open **Windows Powershell ISE** as a administrator
 
-   ![](./images/azure-arc-1778.png) 
+   ![](./images/azure-arc-00.png) 
 
-2. You will see, following two machines are **pre-connected**
-   * **pre-connected-ubuntu**
-   * **pre-connected-winvm**
+2. Run the command
 
-   ![](./images/azure-arc-1779.png)
+```
+minikube status
+```
+   ![](./images/azure-arc-01.png)
 
 3. Click on one of the **pre-connected** machines.
 
