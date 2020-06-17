@@ -18,10 +18,10 @@ In this task, you will check the existing Kubernetes cluster and verify that the
 
 3. To get status of all nodes, execute below command:
   
-  ```
-  kubectl get nodes
-  ```
-  The status should show as **Ready** as shown below:
+   ```
+   kubectl get nodes
+   ```
+   The status should show as **Ready** as shown below:
   
   ![](./images/azure-arc-03.png)
    
