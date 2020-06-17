@@ -21,6 +21,7 @@ In this task, you will check the existing Kubernetes cluster and verify that the
   ```
   kubectl get nodes
   ```
+  The status should show as **Ready** as shown below:
   
   ![](./images/azure-arc-03.png)
    
