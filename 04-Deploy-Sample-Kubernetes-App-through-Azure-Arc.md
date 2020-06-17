@@ -32,7 +32,9 @@
 
   ![](./images/azure-arc-09.png) 
   
-2. Navigate to Azure-Arc-XXXXXX RG->
+  >Wait for 5 mins before performing the next step
+  
+2. Navigate to Azure-Arc-XXXXXX RG->AzureArcAKSCluster1->Configurations. The operator state status should show as **installed**
 
   ![](./images/azure-arc-10.png) 
   
@@ -40,8 +42,8 @@
 
 1. After config-agent has installed the flux instance, resources held in the git repository should begin to flow to the cluster. Check to see that the namespaces, deployments, and resources will be created by **Running the following command:**
 
-  ```
-  kubectl get ns --show-labels
+   ```
+   kubectl get ns --show-labels
    ```
  
   The output shows that team-a, team-b, itops, and cluster-config namespaces have been created as shown:
