@@ -16,11 +16,7 @@ In this task, you will check the existing Kubernetes cluster and verify that the
    
    ![](./images/azure-arc-01.png)
 
-3. Click on one of the **pre-connected** machines.
-
-   ![](./images/azure-arc-1991.png) 
-
-4. To get status of all nodes, execute below command:
+3. To get status of all nodes, execute below command:
   
   ```
   kubectl get nodes
