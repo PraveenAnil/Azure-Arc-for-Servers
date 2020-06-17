@@ -23,6 +23,6 @@ In this task, you will check the existing Kubernetes cluster and verify that the
    ```
    The status should show as **Ready** as shown below:
   
-  ![](./images/azure-arc-03.png)
+   ![](./images/azure-arc-03.png)
    
 In this exercise, you explored about how to check the already onboarded Hybrid compute servers. In next exercise, you will explore more on onboarding the Azure Arc/Hybrid compute on-prem servers to Azure Arc.
