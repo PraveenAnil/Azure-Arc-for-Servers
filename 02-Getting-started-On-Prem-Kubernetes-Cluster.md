@@ -20,8 +20,12 @@ In this task, you will check the existing Kubernetes cluster and verify that the
 
    ![](./images/azure-arc-1991.png) 
 
-4. From here, you can **manage** and **govern** your machines with **Manage access** and **Assess compliance**. You will explore on that next exercises.
-
-   ![](./images/azure-arc-1781.png)
+4. To get status of all nodes, execute below command:
+  
+  ```
+  kubectl get nodes
+  ```
+  
+  ![](./images/azure-arc-03.png)
    
 In this exercise, you explored about how to check the already onboarded Hybrid compute servers. In next exercise, you will explore more on onboarding the Azure Arc/Hybrid compute on-prem servers to Azure Arc.
