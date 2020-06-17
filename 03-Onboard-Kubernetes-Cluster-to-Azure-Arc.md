@@ -26,8 +26,10 @@ Azure Arc for servers (preview) allows you to manage your Windows and Linux mach
 
 1. Verify whether the cluster is connected by running the following command
    
+   - Replace the XXXXXX with the deploymentID provided in the environment details page
+
    ```
-   az connectedk8s list -g AzureArcTest -o table  
+   az connectedk8s list -g Azure-Arc-XXXXXX -o table  
    ```
    ![](./images/azure-arc-06.png)
 
@@ -36,4 +38,6 @@ Azure Arc for servers (preview) allows you to manage your Windows and Linux mach
    ```
    kubectl -n azure-arc get deployments,pods
    ```
+   The output should be similar as shown:
+   
    ![](./images/azure-arc-07.png) 
