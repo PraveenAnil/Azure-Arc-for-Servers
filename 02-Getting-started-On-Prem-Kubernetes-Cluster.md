@@ -7,11 +7,13 @@ In this task, you will check the existing Kubernetes cluster and verify that the
 
    ![](./images/azure-arc-00.png) 
 
-2. Run the command
+2. Run the following command to check the status of the cluster.
 
    ```
    minikube status
    ```
+   If your cluster is running, the output from minikube status should be similar to:
+   
    ![](./images/azure-arc-01.png)
 
 3. Click on one of the **pre-connected** machines.
