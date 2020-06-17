@@ -9,9 +9,9 @@ In this task, you will check the existing Kubernetes cluster and verify that the
 
 2. Run the command
 
-```
-minikube status
-```
+   ```
+   minikube status
+   ```
    ![](./images/azure-arc-01.png)
 
 3. Click on one of the **pre-connected** machines.
