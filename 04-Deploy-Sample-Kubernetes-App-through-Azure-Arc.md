@@ -15,9 +15,9 @@
    ```
    az k8sconfiguration create --name cluster-config --cluster-name AzureArcAKSCluster1 --resource-group Azure-Arc-XXXXXX --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/<your personal github account name>/arc-k8s-demo --scope cluster --cluster-type connectedClusters
    ```
-  The output should be as shown:
+   The output should be as shown:
 
-  ![](./images/azure-arc-08.png) 
+   ![](./images/azure-arc-08.png) 
 
 ## Task 3: Validate the sourceControlConfiguration
 
@@ -28,9 +28,9 @@
    ```
    Note that the sourceControlConfiguration resource is updated with compliance status, messages, and debugging information in the output.
 
-  The output should be as shown:
+   The output should be as shown:
 
-  ![](./images/azure-arc-09.png) 
+   ![](./images/azure-arc-09.png) 
   
   >Wait for 5 mins before performing the next step
   
@@ -46,7 +46,7 @@
    kubectl get ns --show-labels
    ```
  
-  The output shows that team-a, team-b, itops, and cluster-config namespaces have been created as shown:
+   The output shows that team-a, team-b, itops, and cluster-config namespaces have been created as shown:
   
    ![](./images/azure-arc-11.png) 
    
@@ -56,9 +56,9 @@
     kubectl -n cluster-config get deploy  -o wide
     ```
    
-   The output is as shown:
+    The output is as shown:
    
-   ![](./images/azure-arc-12.png) 
+    ![](./images/azure-arc-12.png) 
   
 3. You can explore the other resources deployed as part of the configuration repository by following commands:
 
