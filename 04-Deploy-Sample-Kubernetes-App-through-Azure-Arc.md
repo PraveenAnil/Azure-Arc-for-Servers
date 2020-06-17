@@ -31,3 +31,37 @@
   The output should be as shown:
 
   ![](./images/azure-arc-09.png) 
+  
+2. Navigate to Azure-Arc-XXXXXX RG->
+
+  ![](./images/azure-arc-10.png) 
+  
+## Task 4:  Validate the Kubernetes configuration
+
+1. After config-agent has installed the flux instance, resources held in the git repository should begin to flow to the cluster. Check to see that the namespaces, deployments, and resources will be created by **Running the following command:**
+
+  ```
+  kubectl get ns --show-labels
+   ```
+ 
+  The output shows that team-a, team-b, itops, and cluster-config namespaces have been created as shown:
+  
+   ![](./images/azure-arc-11.png) 
+   
+ 2.  The flux operator will be deployed to cluster-config namespace, as directed by our sourceControlConfig:
+ 
+    ```
+    kubectl -n cluster-config get deploy  -o wide
+    ```
+   The output is as shown:
+   
+   ![](./images/azure-arc-12.png) 
+  
+3. You can explore the other resources deployed as part of the configuration repository by following commands:
+
+   ```
+   kubectl -n team-a get cm -o yaml
+   ```
+   ```
+   kubectl -n itops get all
+   ```
