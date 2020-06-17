@@ -36,7 +36,7 @@
   
 2. Navigate to **Azure-Arc RG->AzureArcAKSCluster1->Configurations**. The operator state status should show as **installed**
 
-  ![](./images/azure-arc-10.png) 
+   ![](./images/azure-arc-10.png) 
   
 ## Task 4:  Validate the Kubernetes configuration
 
