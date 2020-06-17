@@ -15,9 +15,9 @@
   ```
   az k8sconfiguration create --name cluster-config --cluster-name AzureArcAKSCluster1 --resource-group Azure-Arc-XXXXXX --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/<your personal github account name>/arc-k8s-demo --scope cluster --cluster-type connectedClusters
    ```
- The output should be as shown:
+  The output should be as shown:
 
- ![](./images/azure-arc-08.png) 
+  ![](./images/azure-arc-08.png) 
 
 ## Task 3: Validate the sourceControlConfiguration
 
@@ -50,11 +50,11 @@
   
    ![](./images/azure-arc-11.png) 
    
- 2.  The flux operator will be deployed to cluster-config namespace, as directed by our sourceControlConfig:
+ 2. The flux operator will be deployed to cluster-config namespace, as directed by our sourceControlConfig:
       
-      ```
-      kubectl -n cluster-config get deploy  -o wide
-      ```
+    ```
+    kubectl -n cluster-config get deploy  -o wide
+    ```
    
    The output is as shown:
    
