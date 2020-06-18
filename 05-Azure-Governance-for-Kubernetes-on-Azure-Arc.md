@@ -85,9 +85,9 @@ Policies can be applied to ARC enabled Kubernetes the same way they are applied 
 
 6. Click **Next** at the bottom of the window.
 
-7. Provide  **Cluster1** against List of label field and In Effect field, select Disabled to not deny any admission requests and Click **Next**
+7. Provide  **Cluster1** against List of label field and Click **Next**
 
-   ![](./images/arc-0019.png)
+   ![](./images/arc-0029.png)
    
 8. Select the **Create a Managed Identity** check box and the click **Next** again
 
@@ -96,53 +96,22 @@ Policies can be applied to ARC enabled Kubernetes the same way they are applied 
 9. Then at the bottom of the **Assign Policy** window click on **Create**.
 
 
-11. Click on the new policy just created **Audit Windows VMs that are not set to the specified time zone**
-12. Click **Create a Remediation Task** at the top right
+10. Navigate to **Azure-Arc RG** -> **AzureArcAKSCluster1** -> **Policies**.
 
-   ![](./images/arc-0013.png)
+11. You can check if your cluster is **compliant** or **not** against **“[Preview]: Enforce labels on pods in Kubernetes cluster”** policy you assigned in previous step by looking at the Compliance State Column
 
-13. Confirm that the **Scope** is showing the correct Resource Group – should default to …/Azure-ARC-171289
+    ![](./images/arc-0030.png)
 
-   ![](./images/arc-0013.png)
+12. You can check if the pods have app label or not by executing the following command in the powershell window:
 
-      a. Click on the **ellipses** …to the right to select all options to include the server as shown to the right
+  ```
+  kubectl get pods --show-labels
+  ```
 
-14. Select the Checkbox beneath **Re-evaluate resource compliance before remediating**
-15. In the **Locations** drop-down list, select the location where you installed your ARC Server
-      * If you are not sure or can’t remember, look on the **Overview** window for your server
-16. Click **Remediate** at the bottom of the **New Remediation Task** window
+   ![](./images/arc-0031.png)
 
-   ![](./images/arc-0013.png)
+**Note**: If you find **non-compliant**, you will need to update the configuration file to apply the tag and after sometime you will see the complaint state changed to **Compliant**
 
-In the next window at the bottom you will see a blue circle beside **Evaluating**. When it is successful and completed, the circle will turn green and it will say **Complete**. NOTE: if you had many ARC servers, you could evaluate the all at once but changing the scope to select one of more locations or all within a resource group.
-
-   ![](./images/arc-0013.png)
-
-Optional initiatives to try… repeat the steps above to test some other policies such as:
-
-**Operational compliance**
-  * Micro-segmentation to ensure servers are connected to the right network (remote host connection status doesn't match the specified one)
-  * Certificate about to expire
-  * Application installed: ensure backup is installed
-  * Machines are not restarted after 45 days, indicator that it has been forgotten, running but not used
-
-**Security compliance**
-  * Password policy
-  * Application installed or not installed (like diagnostic tools used for investigation, but make sure it is removed after troubleshooting)
-  * TLS 1.2 monitoring => part of PCI DSS (data security standard)
-
-17. You can check your server is **compliant** or **not** against **“[Preview]: Configure time zone on Windows machines”** policy you assigned in previous step. Click on the **policies** from winvm options from left hand pane and then look for **Compliance** state. You can see **winvm** is compliant against this policy.
-
-    ![](./images/azure-arc-3337.png)
-
-**Note**: If you find **winvm non-compliant** means time zone of winvm is different from the time zone you provided in policy. You can change the time zone of winvm using following script and after sometime you will see the winvm complaint state changed to **Compliant**
-
-   ```
-      $ap = "demo@pass123" 
-      $cred = New-Object -ArgumentList "Administrator",(ConvertTo-SecureString -AsPlainText -Force -String $ap) -    TypeName System.Management.Automation.PSCredential 
-      $ip = "192.168.0.5" 
-      Invoke-Command -ComputerName $ip -Credential $cred -ScriptBlock {Set-TimeZone -Id '(UTC) Coordinated Universal Time'} 
-   ```
     
 ## Task 3: Tag your Azure Arc enabled Kubernetes
 
