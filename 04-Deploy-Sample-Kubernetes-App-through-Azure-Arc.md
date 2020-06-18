@@ -2,7 +2,7 @@
 
 ## Task 1: Create a Configuration
 
-1. Fork the repository https://github.com/Azure/arc-k8s-demo to your personal github account as this will be used in the later part of the lab.
+1. Fork the repository https://github.com/Azure/arc-k8s-demo to your personal github account. As you will be making changes to the files in the repository.
 
 ## Task 2: Deploy App using az k8sconfiguration
 
@@ -15,15 +15,16 @@
    ```
    az k8sconfiguration create --name cluster-config --cluster-name AzureArcAKSCluster1 --resource-group Azure-Arc-XXXXXX --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/<your personal github account name>/arc-k8s-demo --scope cluster --cluster-type connectedClusters
    ```
+   
    The output should be as shown:
 
-   ![](./images/azure-arc-08.png) 
+   ![](./images/arc-0023.png) 
    
       >Wait for 5 mins before performing the next step
 
 ## Task 3: Validate the sourceControlConfiguration
 
-1. Validate whether the sourceControlConfiguration was successfully created.
+1. Validate whether the sourceControlConfiguration was successfully created and the compliance state is Installed. If it is pending, retry the same command again after sometime.
 
    ```
    az k8sconfiguration show --resource-group Azure-Arc-XXXXXX --name cluster-config --cluster-name AzureArcAKSCluster1 --cluster-type connectedClusters
@@ -32,7 +33,7 @@
 
    The output should be as shown:
 
-   ![](./images/azure-arc-09.png) 
+   ![](./images/arc-0024.png) 
   
 2. Navigate to **Azure-Arc RG->AzureArcAKSCluster1->Configurations**. Ensure that the operator state status should show as **Installed**.
 
