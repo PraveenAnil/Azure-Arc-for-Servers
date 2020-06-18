@@ -21,7 +21,7 @@ Azure Arc extends Azure Resource Manager capabilities to Linux and Windows serve
    
    The output should be similar as shown:
    
-   ![](./images/azure-arc-05.png) 
+   ![](./images/arc-0020.png) 
 
 ## Task 2: Verify the cluster from Azure Portal
 Azure Arc for servers (preview) allows you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider, similarly to how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID, is managed as part of a resource group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and applying tags.
@@ -33,7 +33,7 @@ Azure Arc for servers (preview) allows you to manage your Windows and Linux mach
    ```
    az connectedk8s list -g Azure-Arc-XXXXXX -o table  
    ```
-   ![](./images/azure-arc-06.png)
+   ![](./images/arc-0021.png)
 
 2. Azure Arc enabled Kubernetes deploys a few operators into the azure-arc namespace. You can view these deployments and pods by running the command:
    
