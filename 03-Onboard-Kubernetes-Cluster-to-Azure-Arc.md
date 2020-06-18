@@ -17,7 +17,7 @@ Azure Arc extends Azure Resource Manager capabilities to Linux and Windows serve
    ```
    az connectedk8s connect --name AzureArcAKSCluster1 --resource-group Azure-Arc-XXXXXX -l eastus
    ```
-   > Note:The command might take around 20 mins to complete the execution
+   > Note: This command will take around 20 mins to complete the execution
    
    The output should be similar as shown:
    
