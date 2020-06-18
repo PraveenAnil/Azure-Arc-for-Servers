@@ -10,7 +10,7 @@
 
 2. Run the following command
    - Replace the XXXXXX with the deploymentID provided in the environment details page
-   - Replace the **your personal github account name** with your personal github account that you are using to perform the lab.
+   - Replace **your personal github account name** with your personal github account that you are using to perform the lab.
 
    ```
    az k8sconfiguration create --name cluster-config --cluster-name AzureArcAKSCluster1 --resource-group Azure-Arc-XXXXXX --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/<your personal github account name>/arc-k8s-demo --scope cluster --cluster-type connectedClusters
