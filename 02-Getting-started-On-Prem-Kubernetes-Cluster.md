@@ -10,7 +10,7 @@ In this task, you will check the existing Kubernetes cluster and verify that the
 
 2. Click on the **Kubernetes** icon and verify whether the cluster **minikube** is present,explore the different features available.
    
-   ![](./images/arc-01.png) 
+   ![](./images/arc-02.png) 
    
 3. Open the **Powershell terminal** within the Visual studio code .
     
@@ -32,11 +32,16 @@ In this task, you will check the existing Kubernetes cluster and verify that the
    ```
    minikube start
    ```
+## Task 2: Configuring WSL environment on Windows
+   
+ 1. Open the **Ubuntu 18.04** as a administrator
+   
+    ![](./images/arc-05.png)  
+    
+ 2. Wait until the application is installed,If prompted with username and Password provide the username as **arcadmin** and Password as **Password.1!!**.
+ 
+  ![](./images/arc-06.png) 
+  
+## Task 3:Connect to Kubernetes cluster using WSL
 
-   
-   ## Task 2: Configuring WSL environment on Windows
-   
-   
-   
-   ## Task 3:Connect to Kubernetes cluster using WSL
 In this exercise, you explored about how to check the already onboarded Hybrid compute servers. In next exercise, you will explore more on onboarding the Azure Arc/Hybrid compute on-prem servers to Azure Arc.
