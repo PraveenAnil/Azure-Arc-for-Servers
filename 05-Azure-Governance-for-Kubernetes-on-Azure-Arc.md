@@ -62,59 +62,62 @@ Azure Policy extends Gatekeeper v3, an admission controller webhook for Open Pol
 
 
 ## Task 2: Apply Policy
-Policies can be applied to ARC servers the same way they are applied to Microsoft Azure virtual machines. Policies can be applied to ensure the Azure resources are compliant with established practices such as ensuring that all resources are tagged with an owner. Initiatives can be applied to ensure the server operating systems are compliant such as ensuring the time zone is set correctly on a Microsoft Windows server or a software package is installed on a Linux server. The initiatives use a publish policy to deploy a configuration requirement and an audit policy to check if the requirement has been met.
+Policies can be applied to ARC enabled Kubernetes the same way they are applied to Microsoft Azure virtual machines. Policies can be applied to ensure the Azure resources are compliant with established practices such as ensuring that all resources are tagged with an owner. Policies can be applied to ensure the Azure arc enabled clusters are compliant such as ensuring the cluster configuration is set through a specific repo or enforcing a specific label on a pod.
 
-1. From the **Machine -Azure Arc** menu for the Hybrid Server you are working with, click on **Policies**
+1. From the Azure Portal (https://portal.azure.com ), navigate to the resource group you have access to and click on AzureArcAKSCluster1 resource. 
 
-   ![](./images/azure-arc-2221.png)
+   ![](./images/arc-0013.png)
 
-2. Click **Assign policy**.
+2. From the **Azure Arc Enabled Kuberenetes* blade, click on **Go to Policies** under Configure Azure Policy.
 
-   ![](./images/azure-arc-2222.png)
+   ![](./images/arc-0014.png)
 
-3. To the right of **Basics** click on the ellipses (…) to the right of **Initiative definition**.
+3. Click **Assign policy**.
 
-   ![](./images/azure-arc-2223.png)
+   ![](./images/arc-0015.png)
 
-4. In the **Search** window for available definitions, type “Time ” and select the one called **Show Audit results from Windows VMs that are not set to the specified time zone**.  Click the blue **Select** button below.
+4. On the Basics Tab, click on the ellipses (…) to the right of **Policy definition**.
 
-   ![](./images/azure-arc-2224.png)
+   ![](./images/arc-0016.png)
 
-5. Click **Next** at the bottom of the window.
+5. In the **Search** window for available definitions, type “Kubernetes ” and select the one called **Enforce labels on pods in Kubernetes cluster**.  Click the blue **Select** button below.
 
-   ![](./images/azure-arc-2225.png)
+   ![](./images/arc-0017.png)
 
-6. From the **Time zone** drop down menu select **“(UTC) Coordinated Universal Time”**. Click **Next**
-7. Read the description and then select the checkbox for **Create a remediation task**. This ensures that the policy will apply to existing resources after the policy is assigned.  If that box is not selected, then the policy only applies to newly created resources.
+6. Click **Next** at the bottom of the window.
+
+7. Provide  **Cluster1** against List of label field and In Effect field, select Disabled to not deny any admission requests and Click **Next**
+
+   ![](./images/arc-0019.png)
+   
 8. Select the **Create a Managed Identity** check box and the click **Next** again
 
-   ![](./images/azure-arc-2228.png)
+   ![](./images/arc-0018.png)
 
 9. Then at the bottom of the **Assign Policy** window click on **Create**.
 
-   ![](./images/azure-arc-2229.png)
 
-10. Click on the new policy just created **Audit Windows VMs that are not set to the specified time zone**
-11. Click **Create a Remediation Task** at the top right
+11. Click on the new policy just created **Audit Windows VMs that are not set to the specified time zone**
+12. Click **Create a Remediation Task** at the top right
 
-    ![](./images/azure-arc-3331.png)
+   ![](./images/arc-0013.png)
 
-12. Confirm that the **Scope** is showing the correct Resource Group – should default to …/Azure-ARC-171289
+13. Confirm that the **Scope** is showing the correct Resource Group – should default to …/Azure-ARC-171289
 
-    ![](./images/azure-arc-3333.png)
+   ![](./images/arc-0013.png)
 
       a. Click on the **ellipses** …to the right to select all options to include the server as shown to the right
 
-13. Select the Checkbox beneath **Re-evaluate resource compliance before remediating**
-14. In the **Locations** drop-down list, select the location where you installed your ARC Server
+14. Select the Checkbox beneath **Re-evaluate resource compliance before remediating**
+15. In the **Locations** drop-down list, select the location where you installed your ARC Server
       * If you are not sure or can’t remember, look on the **Overview** window for your server
-15. Click **Remediate** at the bottom of the **New Remediation Task** window
+16. Click **Remediate** at the bottom of the **New Remediation Task** window
 
-    ![](./images/azure-arc-3335.png)
+   ![](./images/arc-0013.png)
 
 In the next window at the bottom you will see a blue circle beside **Evaluating**. When it is successful and completed, the circle will turn green and it will say **Complete**. NOTE: if you had many ARC servers, you could evaluate the all at once but changing the scope to select one of more locations or all within a resource group.
 
-   ![](./images/azure-arc-3336.png)
+   ![](./images/arc-0013.png)
 
 Optional initiatives to try… repeat the steps above to test some other policies such as:
 
@@ -129,7 +132,7 @@ Optional initiatives to try… repeat the steps above to test some other policie
   * Application installed or not installed (like diagnostic tools used for investigation, but make sure it is removed after troubleshooting)
   * TLS 1.2 monitoring => part of PCI DSS (data security standard)
 
-16. You can check your server is **compliant** or **not** against **“[Preview]: Configure time zone on Windows machines”** policy you assigned in previous step. Click on the **policies** from winvm options from left hand pane and then look for **Compliance** state. You can see **winvm** is compliant against this policy.
+17. You can check your server is **compliant** or **not** against **“[Preview]: Configure time zone on Windows machines”** policy you assigned in previous step. Click on the **policies** from winvm options from left hand pane and then look for **Compliance** state. You can see **winvm** is compliant against this policy.
 
     ![](./images/azure-arc-3337.png)
 
