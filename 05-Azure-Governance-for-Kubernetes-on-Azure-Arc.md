@@ -34,19 +34,18 @@ Azure Policy extends Gatekeeper v3, an admission controller webhook for Open Pol
 4. Run the following commands in Powershell to install the Azure Policy Add-on repo to Helm.
 
    ![](./images/arc-0004.png)
+      
+      Note: In below command, replace the following values with those gathered above.
+   <AzureArcClusterResourceId> with your Azure Arc enabled Kubernetes cluster resource Id. For example: 	/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>
+       <ServicePrincipalAppId> with app Id of the service principal created during prerequisites.
+       <ServicePrincipalPassword> with password of the service principal created during prerequisites.
+       <ServicePrincipalTenantId> with tenant of the service principal created during prerequisites.
    
    ```
-   # In below command, replace the following values with those gathered above.
-   # <AzureArcClusterResourceId> with your Azure Arc enabled Kubernetes cluster resource Id. For example: /subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>
-   #    <ServicePrincipalAppId> with app Id of the service principal created during prerequisites.
-   #    <ServicePrincipalPassword> with password of the service principal created during prerequisites.
-   #    <ServicePrincipalTenantId> with tenant of the service principal created during prerequisites.
    helm install azure-policy-addon azure-policy/azure-policy-addon-arc-clusters --set azurepolicy.env.resourceid=<AzureArcClusterResourceId> --set azurepolicy.env.clientid=<ServicePrincipalAppId> --set azurepolicy.env.clientsecret=<ServicePrincipalPassword> --set azurepolicy.env.tenantid=<ServicePrincipalTenantId>
    ```
 
 5. Now, to validate that the add-on installation was successful and that the azure-policy and gatekeeper pods are running, run the following commands.
-
- 
     
      ```
     # azure-policy pod is installed in kube-system namespace
@@ -145,30 +144,34 @@ Optional initiatives to try… repeat the steps above to test some other policie
       Invoke-Command -ComputerName $ip -Credential $cred -ScriptBlock {Set-TimeZone -Id '(UTC) Coordinated Universal Time'} 
    ```
     
-## Task 3: Tag your ARC server
-1. Open the Azure portal page. Click on this link to go to the Azure ARC machine(s) you have built
-2. Click on your machine that you want to tag
+## Task 3: Tag your Azure Arc enabled Kubernetes
 
-   ![](./images/azure-arc-3338.png)
+1. Navigate to the Azure portal.
+
+2. Then navigate to the Azure Arc enabled Kubernetes resource Azure-Arc RG-> AzureArcAKSCluster1
 
 3. After clicking on it, Click on **Tags** in the center blade
 
-   ![](./images/azure-arc-3339.png)
+   ![](./images/arc-0025.png)
 
-4. Create the following tags, for owner enter your Azure account unique id and then Save them
+4. Create the following tags and then Save them
    
-   ![](./images/tag.png)
+    Tag Name | Value
+    --- | ---
+    ClusterNumber | `1`
+    ClusterHost | `HypervVm`
 
 5. After saving them they should look like this.&nbsp;&nbsp;
 
-   ![](./images/azure-arc-4441.png)
+   ![](./images/arc-0026.png)
 
 ## Task 4: Activity Logs
-In last task, you added **tags** to one of the **Hybrid Computes machines**, check the **activity logs** for that.
-1. In this step, click on the **Activity logs**, you will see **Write Azure Arc Machines** operation is performed. Expand the operation and click on the one of **expanded operation**.
+In the previous task, you added **tags** to one of the **Azure Arc enabled Kubernetes**. Now, you will check the **activity logs** for that.
 
-   ![](./images/azure-arc-4442.png)
+1. In this step, click on the **Activity logs**, you will see **Update connectedClusters resources Create** operation is performed. Expand the operation and click on the one of **expanded operation**.
 
-2. Now, click on the **Change history (Preview)**, you can see multiple Tags inserted. In same way you can check more **Tags**.
+   ![](./images/arc-0027.png)
 
-   ![](./images/azure-arc-4443.png)
+2. Now, click on the **Change history (Preview)**, you can see multiple Tags inserted.
+
+   ![](./images/arc-0028.png)
