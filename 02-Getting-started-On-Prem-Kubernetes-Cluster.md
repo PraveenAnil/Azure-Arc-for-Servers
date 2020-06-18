@@ -46,4 +46,24 @@ In this task, you will check the existing Kubernetes cluster and verify that the
   
 ## Task 3:Connect to Kubernetes cluster using WSL
 
+1. Open the Visual studio code once again and run the following command in the terminal
+   
+   ```
+   wsl
+   ```
+   ![](./images/arc-07.png) 
+ 
+ 2. Within the VS Code from the **file** menu open the file from the folder C:\LabFiles **configurewslkubectl.sh**
+  
+    ![](./images/arc-08.png)
+    
+    ![](./images/arc-09.png)
+    ![](./images/arc-10.png)
+    ![](./images/arc-11.png)
+    ![](./images/arc-12.png)
+
+
+
+
+
 In this exercise, you explored about how to check the already onboarded Hybrid compute servers. In next exercise, you will explore more on onboarding the Azure Arc/Hybrid compute on-prem servers to Azure Arc.
