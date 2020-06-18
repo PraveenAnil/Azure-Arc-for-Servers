@@ -1,5 +1,7 @@
 # Exercise 4: Deploy Sample Kubernetes App through Azure Arc
 
+In this exercise, you will deploy a sample kubernetes app using az k8sconfiguration command and gitops.
+
 ## Task 1: Create a Configuration
 
 1. Fork the repository https://github.com/Azure/arc-k8s-demo to your personal github account. As you will be making changes to the files in the repository.
