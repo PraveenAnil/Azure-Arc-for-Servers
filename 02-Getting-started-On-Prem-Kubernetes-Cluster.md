@@ -16,11 +16,13 @@ In this task, you will check the existing Kubernetes cluster and verify that the
     
    ![](./images/arc-03.png) 
 
-4. If the cluster is running, the output from minikube status should be similar to:
+4. Run the following command to check the status of the cluster .
    
    ```
    minikube status
    ```
+   If the cluster is running, the output from minikube status should be similar to:
+   
    ![](./images/arc-04.png) 
    
    >Note: If the cluster status is **Stopped**,Run the following commands
@@ -40,7 +42,7 @@ In this task, you will check the existing Kubernetes cluster and verify that the
     
  2. Wait until the application is installed,If prompted with username and Password provide the username as **arcadmin** and Password as **Password.1!!**.
  
-  ![](./images/arc-06.png) 
+    ![](./images/arc-06.png) 
   
 ## Task 3:Connect to Kubernetes cluster using WSL
 
