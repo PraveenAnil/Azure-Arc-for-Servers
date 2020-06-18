@@ -57,12 +57,16 @@ In this task, you will check the existing Kubernetes cluster and verify that the
   
     ![](./images/arc-08.png)
     
-    ![](./images/arc-09.png)
+ 3. Run the commands to install Kubectl in WSL
    
-    ![](./images/arc-15.png)
+    ![](./images/arc-17.png)
 
-
-
-
+4. Run the commands to Install Helm in WSL one by one
+ 
+   ![](./images/arc-16.png)
+ 
+5. Run all the commands **Set Kubectl config on WSL**
+ 
+   ![](./images/arc-15.png)
 
 In this exercise, you explored about how to check the already onboarded Hybrid compute servers. In next exercise, you will explore more on onboarding the Azure Arc/Hybrid compute on-prem servers to Azure Arc.
