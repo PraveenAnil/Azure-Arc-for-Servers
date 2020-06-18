@@ -2,7 +2,7 @@
 
 ## Task 1: Create a Configuration
 
-1. Fork the repository https://github.com/Azure/arc-k8s-demo to your personal github account as this is used in the later part of the lab.
+1. Fork the repository https://github.com/Azure/arc-k8s-demo to your personal github account as this will be used in the later part of the lab.
 
 ## Task 2: Deploy App using az k8sconfiguration
 
