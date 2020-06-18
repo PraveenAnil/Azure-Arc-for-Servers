@@ -2,33 +2,42 @@
 
 ## Task 1: Make changes to cluster declarations in the Git repo.
 
-1. Browse to the forked repo of https://github.com/Azure/arc-k8s-demo
+1.  Run the following command in Powershell window and confirm that the Age is the same for both azure-vote-back and azure-vote-front apps. It will be same since the deployment was done through az k8sconfiguration command.
 
-2. Navigate to **cluster-apps->azure-vote.yaml** and edit the yaml file
+    ```
+    kubectl get pods 
+    ```
+    ![](./images/arc-0032.png)   
+
+2. Browse to the forked repo of https://github.com/Azure/arc-k8s-demo
+
+3. Navigate to **cluster-apps->azure-vote.yaml** and edit the yaml file
 
    ![](./images/azure-arc-15.png)   
 
-3. Change the cpu request from 250 to **280** in line 62 
+4. Change the cpu request from 250 to **280** in line 62 
 
    ![](./images/azure-arc-16.png)   
 
 ## Task2: Verify changes are deployed to the cluster.
 
-1.  Run the following command and copy the pod name starting with **azure-vote-front**
+1.  Run the following command and copy the pod name starting with **azure-vote-front-**
 
     ```
     kubectl get pods 
     ```
-    ![](./images/azure-arc-17.png)   
+    ![](./images/arc-0033.png) 
+    
+    Observe in the above image that the previous pod is terminated and a new pod is created based on the updated configuration
 
 2.  Replace the pod name that you copied in the previous step and run the command
  
     ```
     kubectl get pod <podname> -o yaml
     ```
-    ![](./images/azure-arc-18.png)   
+    ![](./images/arc-0034.png)   
     
     Observe the CPU request value that you updated in the previous steps in the output as shown:
     
-    ![](./images/azure-arc-19.png)   
+    ![](./images/arc-0035.png)   
 
