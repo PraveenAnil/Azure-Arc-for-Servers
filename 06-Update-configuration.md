@@ -19,7 +19,7 @@
     ```
     kubectl get pods 
     ```
-   ![](./images/azure-arc-17.png)   
+    ![](./images/azure-arc-17.png)   
 
 2.  Replace the pod name that you copied in the previous step and run the command
  
