@@ -4,11 +4,11 @@ In the provided lab environment, you would already have one Windows 10 machine r
 ## Task 1: Verify existing Kubernetes Cluster
 In this task, you will check the existing Kubernetes cluster and verify that the cluster is up and running. 
 
-1. Open **Visual Studio Code**
+1. Type Visual Studio Code in the search bar on the bottom left corner of the VM, Open **Visual Studio Code** option that comes up
 
    ![](./images/arc-01.png) 
 
-2. Click on the **Kubernetes** icon and verify whether the cluster **minikube** is present,explore the different features available.
+2. Click on the **Kubernetes** extension and verify whether a cluster with name **minikube** is present.
    
    ![](./images/arc-02.png) 
    
@@ -68,5 +68,13 @@ In this task, you will check the existing Kubernetes cluster and verify that the
 5. Run all the commands at once **Set Kubectl config on WSL**
  
    ![](./images/arc-15.png)
+   
+ 6. Now you can run the command 'exit' to exit out of WSL and be back in the powershell terminal.
+ 
+   ```
+   exit
+   ```
+ 
+ 7. You can chose to use any of the following methods -  Powershell through Visual Studio Code or throught direct Powershell terminal from the desktop for performing the remaaining exercises
 
 In this exercise, you explored about how to check the already onboarded Hybrid compute servers. In next exercise, you will explore more on onboarding the Azure Arc/Hybrid compute on-prem servers to Azure Arc.
