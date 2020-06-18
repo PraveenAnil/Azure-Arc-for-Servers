@@ -43,7 +43,7 @@ In this exercise, you will deploy a sample kubernetes app using az k8sconfigurat
   
 ## Task 4:  Validate the Kubernetes configuration
 
-1. After config-agent has installed the flux instance, resources held in the git repository should begin to flow to the cluster. Check to see that the namespaces, deployments, and resources will be created by **Running the following command:**
+1. After config-agent has installed the flux instance, resources held in the git repository should begin to flow to the cluster. Check to see that the namespaces, deployments, and resources are created by **Running the following command:**
 
    ```
    kubectl get ns --show-labels
@@ -63,7 +63,7 @@ In this exercise, you will deploy a sample kubernetes app using az k8sconfigurat
    
     ![](./images/azure-arc-12.png) 
   
-3. You can explore the other resources deployed as part of the configuration repository by following commands:
+3. You can explore the other resources deployed as part of the configuration repository by running the following commands:
 
    ```
    kubectl -n team-a get cm -o yaml
