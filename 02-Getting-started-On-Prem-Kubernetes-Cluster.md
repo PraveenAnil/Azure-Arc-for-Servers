@@ -44,7 +44,7 @@ In this task, you will check the existing Kubernetes cluster and verify that the
  
     ![](./images/arc-06.png) 
   
-## Task 3:Connect to Kubernetes cluster using WSL
+## Task 3: Connect to Kubernetes cluster using WSL
 
 1. Open the Visual studio code once again and run the following command in the terminal
    
