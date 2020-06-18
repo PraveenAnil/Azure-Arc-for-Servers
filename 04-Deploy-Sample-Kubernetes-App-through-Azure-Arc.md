@@ -18,6 +18,8 @@
    The output should be as shown:
 
    ![](./images/azure-arc-08.png) 
+   
+      >Wait for 5 mins before performing the next step
 
 ## Task 3: Validate the sourceControlConfiguration
 
@@ -31,8 +33,6 @@
    The output should be as shown:
 
    ![](./images/azure-arc-09.png) 
-  
-   >Wait for 5 mins before performing the next step
   
 2. Navigate to **Azure-Arc RG->AzureArcAKSCluster1->Configurations**. Ensure that the operator state status should show as **installed**
 
