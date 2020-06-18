@@ -40,7 +40,7 @@ In this task, you will check the existing Kubernetes cluster and verify that the
    
     ![](./images/arc-05.png)  
     
- 2. If prompted with username and Password provide the username as **arcadmin** and Password as **Password.1!!** and wait until the application is installed.
+ 2. When prompted for username and Password provide the username as **arcadmin** and Password as **123456** and wait until the application is installed.
  
     ![](./images/arc-06.png) 
   
@@ -58,9 +58,8 @@ In this task, you will check the existing Kubernetes cluster and verify that the
     ![](./images/arc-08.png)
     
     ![](./images/arc-09.png)
-    ![](./images/arc-10.png)
-    ![](./images/arc-11.png)
-    ![](./images/arc-12.png)
+   
+    ![](./images/arc-15.png)
 
 
 
