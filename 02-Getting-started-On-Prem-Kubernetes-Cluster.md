@@ -57,15 +57,15 @@ In this task, you will check the existing Kubernetes cluster and verify that the
   
     ![](./images/arc-08.png)
     
- 3. Run the commands to install Kubectl in WSL
+ 3. Run the commands to **install Kubectl in WSL** one by one
    
-    ![](./images/arc-17.png)
+    ![](./images/arc-16.png)
 
-4. Run the commands to Install Helm in WSL one by one
+4. Run the commands to **Install Helm in WSL** one command followed by next
  
-   ![](./images/arc-16.png)
+   ![](./images/arc-17.png)
  
-5. Run all the commands **Set Kubectl config on WSL**
+5. Run all the commands at once **Set Kubectl config on WSL**
  
    ![](./images/arc-15.png)
 
