@@ -9,7 +9,7 @@ Azure Arc extends Azure Resource Manager capabilities to Linux and Windows serve
    ```
    This will launch a browser,Login with the credentials provided in the environment details page
    
-   ![](./images/azure-arc-004.png) 
+   ![](./images/arc-0000.png) 
 
 2. Connect to the Kubernetes cluster by executing the following command:
    - Replace the XXXXXX with the deploymentID provided in the environment details page
@@ -42,4 +42,4 @@ Azure Arc for servers (preview) allows you to manage your Windows and Linux mach
    ```
    The output should be similar as shown:
    
-   ![](./images/azure-arc-07.png) 
+   ![](./images/arc-0022.png) 
