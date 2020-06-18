@@ -34,7 +34,7 @@
 
    ![](./images/azure-arc-09.png) 
   
-2. Navigate to **Azure-Arc RG->AzureArcAKSCluster1->Configurations**. Ensure that the operator state status should show as **installed**
+2. Navigate to **Azure-Arc RG->AzureArcAKSCluster1->Configurations**. Ensure that the operator state status should show as **Installed**.
 
    ![](./images/azure-arc-10.png) 
   
