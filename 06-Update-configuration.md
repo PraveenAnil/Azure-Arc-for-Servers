@@ -4,7 +4,7 @@
 
 1. Browse to the forked repo of https://github.com/Azure/arc-k8s-demo
 
-2. Navigate to **cluster-apps->azure-vote.yaml**
+2. Navigate to **cluster-apps->azure-vote.yaml** and edit the yaml file
 
    ![](./images/azure-arc-15.png)   
 
