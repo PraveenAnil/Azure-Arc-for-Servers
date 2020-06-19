@@ -1,4 +1,5 @@
-# Exercise 6: Update Configuration
+# Exercise 6: Update Configuration of the Kubernetes CLuster
+In this exercise, we will update the configuration in the repository which have linked to our connected cluster and verify if cluster is getting updated
 
 ## Task 1: Make changes to cluster declarations in the Git repo.
 
