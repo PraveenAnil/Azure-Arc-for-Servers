@@ -1,6 +1,6 @@
 # Exercise 1: Getting started with Azure Governance 
 
-In this exercise, you will walk through some of the Azure Governance capabilities including Azure Activity Logs, Resource tags and policies. In the first exercise we’ll be trying out these capabilities with Azure resources and then extend to Azure Arc later during the lab.  
+In this exercise, you will walk through some of the Azure Governance capabilities including Azure Activity Logs, Resource tags and policies. In the first exercise we’ll be trying out these capabilities with Azure resources and then extend to Azure Arc enabled Kubernetes later during the lab.  
 ## Task 1: Login to Azure Portal
 In this task, you will login to Azure using the lab credentials and browse through **Azure Portal**.
 1. Navigate to [Azure Portal](https://portal.azure.com/).
@@ -42,9 +42,9 @@ environment. Select **Azure-ARC-170523**.
  
    ![](./images/azure-arc-1705231.png)
 
-4. Under Activity logs you can see ***Write Azure Arc Machines*** action in **Succeeded** state and this action is performed by **https://odl_user_sp_170523**. To check more details for this activity log, click on the activity log **operation** Name. You can go to the resource group overview and see one resource with resource type ***Microsoft.HybridCompute***.
+4. Under Activity logs you can see lot of operations in **Succeeded** state and who performed this action, etc. To check more details for this activity log, click on the activity log **operation** Name. 
 
-   ![](./images/microsoftHybrid2.png)
+   ![](./images/arc-0036.png)
  
 ## Task 3: Manage Resources Tags
 You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "**Environment**" and the value "**Production**" to all the resources in production.
@@ -55,7 +55,7 @@ You apply tags to your Azure resources, resource groups, and subscriptions to lo
  
 3. You will see several **Tags** are already there; you can create new Tag, remove existing Tag and then Save them.
 
-   ![](./images/azure-arc-1712891.png)
+   ![](./images/arc-0037.png)
         
 ## Task 4: Azure Policies
 Understanding how to create and manage policies in Azure is important for staying compliant with your corporate standards and service level agreements. In this tutorial, you learn to use Azure Policy to do some of the more common tasks related to creating, assigning, and managing policies across your organization, such as:
