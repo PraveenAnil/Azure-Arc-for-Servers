@@ -67,7 +67,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 If you would like to assign a policy to identify the current compliance state of your existing resources, the QuickStart articles go over how to do so.
 1. Go to your **Resource group** and click on the **Policies** under Settings. Click on **Compliance** and then check if there is any assignment on current scope. New policy assignments can be done through **Assign policy** and **Assign Initiative** options, Initiative can be a group of policies. Click on **Assign policy**.
 
-   ![](./images/azure-arc-1770.png)
+   ![](./images/arc-0039.png)
 
 2. On **Basics** tab, click on the three dot’s (ellipses) to select the existing policy definition.
 
@@ -97,4 +97,4 @@ If you would like to assign a policy to identify the current compliance state of
 
    ![](./images/azure-arc-1777-2.png)
    
-This policy will audit if the **resource location** is matching with Resource Group location or not. In next exercise, you will go through the **Hybrid compute instances** and check if the policy is **Compliant** or **not** for those instances. If the location of those instances matches with location of Resource Group it will show the policy as **Compliant** otherwise **Non-complaint**. 
+This policy will audit if the **resource location** is matching with Resource Group location or not. If the location of the resources matches with location of Resource Group it will show the policy as **Compliant** otherwise **Non-complaint**. 
