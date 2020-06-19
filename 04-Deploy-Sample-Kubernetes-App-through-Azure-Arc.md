@@ -10,7 +10,7 @@ In this exercise, you will deploy a sample kubernetes app using az k8sconfigurat
 
 1. Using the Azure CLI extension for k8sconfiguration, link connected cluster to personal git repository. Provide this configuration a name cluster-config, instruct the agent to deploy the operator in the cluster-config namespace, and give the operator cluster-admin permissions. 
 
-2. Run the following command
+2. Run the following command:
    - Replace the XXXXXX with the deploymentID provided in the environment details page
    - Replace **your personal github account name** with your personal github account that you are using to perform the lab.
 
