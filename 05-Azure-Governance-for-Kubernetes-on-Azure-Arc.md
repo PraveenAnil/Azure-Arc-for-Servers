@@ -1,8 +1,6 @@
 # Exercise 5: Azure Governance for Kubernetes on Azure Arc
 In this exercise, you will perform Role assignment, Policy assignment, Tag the Azure Arc Enabled Kubernetes and check Activity logs of resource group and azure arc resource.
 
-Using custom roles you can manage the access to the Azure Arc servers and assign the access of Azure Arc servers to any server auditor, Onboard Arc servers, Monitor Admin to the person in your company.
-
 You can assign the in-Built policies to enforce configurations on Azure Arc enabled Kubernetes Clusters. You can filter the Clusters and apply the policies based on Tags.
 
 ## Task 1: Install Azure Policy Add-on for Azure Arc enabled Kubernetes
